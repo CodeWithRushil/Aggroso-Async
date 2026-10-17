@@ -86,7 +86,7 @@ Marketplaces suffer when sellers upload listings with counterfeit claims, prohib
 
 ## 3. Completed vs. Excluded Scope
 
-### ✅ Completed Scope
+### Completed Scope
 - **Listing Fields**: Title, Description, Category, Price, Attributes (structured key-value), Seller, Optional Tags.
 - **Deterministic Validation**:
   - Required fields check (Title, Description, Category, Price, Seller)
@@ -111,7 +111,7 @@ Marketplaces suffer when sellers upload listings with counterfeit claims, prohib
 - **Zero-Setup Fallback**:
   - Runs out of the box with zero external API key requirements, while seamlessly supporting `GEMINI_API_KEY` when configured.
 
-### ❌ Excluded Scope (As Specified by Requirements)
+### Excluded Scope (As Specified by Requirements)
 - Direct publishing to real production marketplaces (Amazon, eBay, Shopify).
 - Image moderation and computer vision scans.
 - Financial payment gateways and credit card checkouts.
