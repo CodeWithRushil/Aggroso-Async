@@ -213,7 +213,7 @@ docker build -t marketplace-listing-reviewer .
 # Run container
 docker run -p 3001:3001 -e PORT=3001 marketplace-listing-reviewer
 ```
-Open `http://localhost:3001` in your browser.
+Open `http://localhost:3001` in your web browser.
 
 ### Cloud Platform Deployment (Render / Railway / Fly.io)
 - **Build Command**: `npm install && npm run build`
