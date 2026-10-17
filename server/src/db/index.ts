@@ -8,7 +8,9 @@ import { Listing, ReviewReport, AuditLogEntry } from '../types/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DATA_DIR = path.resolve(__dirname, '../../data');
+const DATA_DIR = process.env.VERCEL
+  ? path.join('/tmp', 'data')
+  : path.resolve(__dirname, '../../data');
 const DB_FILE = path.join(DATA_DIR, 'marketplace_reviewer.sqlite');
 
 let dbInstance: Database | null = null;
