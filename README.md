@@ -1,4 +1,4 @@
-# 🛡️ Marketplace Listing Quality Reviewer
+# Marketplace Listing Quality Reviewer
 
 An intelligent, full-stack application designed to review product and service listings against strict marketplace policies and brand-content guidelines. It couples deterministic rule validation with a cited AI review agent, field-by-field human-in-the-loop approvals, word-level visual diffing, and audit history preservation.
 
