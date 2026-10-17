@@ -176,8 +176,13 @@ async function seedDatabase(db: Database): Promise<void> {
 // Helper query wrappers
 export async function getAllListings(): Promise<Listing[]> {
   const db = await getDb();
-  const res = db.exec('SELECT * FROM listings ORDER BY created_at DESC');
-  if (res.length === 0) return [];
+  let res = db.exec('SELECT * FROM listings ORDER BY created_at DESC');
+  if (res.length === 0 || !res[0].values || res[0].values.length === 0) {
+    // If table exists but is empty (e.g. cold start in serverless), seed automatically!
+    await seedDatabase(db);
+    res = db.exec('SELECT * FROM listings ORDER BY created_at DESC');
+    if (res.length === 0) return [];
+  }
   const columns = res[0].columns;
   return res[0].values.map(row => {
     const item: any = {};

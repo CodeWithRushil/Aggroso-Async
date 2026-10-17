@@ -8,9 +8,11 @@ import {
   BatchProcessingItem 
 } from '../types/index.js';
 
-const API_BASE = import.meta.env.VITE_API_URL !== undefined && import.meta.env.VITE_API_URL !== ''
-  ? import.meta.env.VITE_API_URL
-  : (import.meta.env.PROD ? '' : 'http://localhost:3001');
+const rawApiUrl = import.meta.env.VITE_API_URL || '';
+// In production or when VITE_API_URL is empty/localhost on a live website, use relative path ''
+const API_BASE = (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1')
+  ? ''
+  : (rawApiUrl || 'http://localhost:3001');
 
 export async function fetchListings(): Promise<Listing[]> {
   const res = await fetch(`${API_BASE}/api/listings`);
